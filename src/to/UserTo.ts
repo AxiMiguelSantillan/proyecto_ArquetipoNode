@@ -1,7 +1,26 @@
+/**
+ * @export
+ * @class UserTo
+ *
+ * @swagger
+ * components:
+ *  schemas:
+ *    UserTo:
+ *      type: object
+ *      properties:
+ *        name:
+ *          type: string
+ *          description: name of user
+ *          example: Pedro
+ *        email:
+ *          type: string
+ *          description: email of user
+ *          example: pedro@axity.com
+ */
 export class UserTo {
-    id: number;
+    id?: number;
     name?: string;
-    email: string;
+    email?: string;
 
     constructor(id: number, email: string) {
         this.id = id;

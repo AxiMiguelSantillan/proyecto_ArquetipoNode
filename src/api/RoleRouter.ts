@@ -1,20 +1,20 @@
 import { Router } from 'express';
-import { UserFacade } from '../facade';
+import { RoleFacade } from '../facade';
 import { logger } from '../config/logger/logger';
-
+ 
 /**
  * @constant {express.Router}
  */
 const router: Router = Router();
-
+ 
 /**
  * DELETE method route
- * @example http://localhost:PORT/users
+ * @example http://localhost:PORT/roles
  * @swagger
- * /users/{id}/id:
+ * /roles/{id}/id:
  *  delete:
- *    description: delete Users
- *    tags: ["Users"]
+ *    description: delete Roles
+ *    tags: ["Roles"]
  *    parameters : [
  *      {
  *         name: 'id',
@@ -28,7 +28,7 @@ const router: Router = Router();
  *    ]
  *    responses:
  *      200:
- *        description: All Users
+ *        description: All Roles
  *      400:
  *        description: Error bad parameters
  *        content:
@@ -36,16 +36,16 @@ const router: Router = Router();
  *            schema:
  *              $ref: '#/components/schemas/ErrorTo'
  */
-router.delete('/:id/id', UserFacade.deleteOne);
-
+router.delete('/:id/id', RoleFacade.deleteOne);
+ 
 /**
  * PATCH method route
- * @example http://localhost:PORT/users
+ * @example http://localhost:PORT/roles
  * @swagger
- * /users/{id}/id:
+ * /roles/{id}/id:
  *  patch:
- *    description: update Users
- *    tags: ["Users"]
+ *    description: update Roles
+ *    tags: ["Roles"]
  *    parameters : [
  *      {
  *         name: 'id',
@@ -58,19 +58,19 @@ router.delete('/:id/id', UserFacade.deleteOne);
  *      }
  *    ]
  *    requestBody:
- *      description: object user
+ *      description: object Roles
  *      required: true
  *      content:
  *        application/json:
  *          schema:
- *            $ref: '#/components/schemas/UserTo'
+ *            $ref: '#/components/schemas/RoleTo'
  *    responses:
  *      200:
- *        description: All Users
+ *        description: All Roles
  *        content:
  *          appication/json:
  *            schema:
- *              $ref: '#/components/schemas/UserTo'
+ *              $ref: '#/components/schemas/RoleTo'
  *      400:
  *        description: Error bad parameters
  *        content:
@@ -78,83 +78,71 @@ router.delete('/:id/id', UserFacade.deleteOne);
  *            schema:
  *              $ref: '#/components/schemas/ErrorTo'
  */
-router.patch('/:id/id', UserFacade.updateOne);
-
-/**
- * POST method route
- * @example http://localhost:PORT/users
- * @swagger
- * /users:
- *  post:
- *    description: create Users
- *    tags: ["Users"]
- *    requestBody:
- *      description: object user
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            $ref: '#/components/schemas/UserTo'
- *    responses:
- *      200:
- *        description: All Users
- *        content:
- *          appication/json:
- *            schema:
- *              $ref: '#/components/schemas/UserTo'
- *      400:
- *        description: Error bad parameters
- *        content:
- *          application/json:
- *            schema:
- *              $ref: '#/components/schemas/ErrorTo'
- */
-router.post('', UserFacade.save);
-
+router.patch('/:id/id', RoleFacade.updateOne);
+ 
 /**
  * GET method route
- * @example http://localhost:PORT/users
+ * @example http://localhost:PORT/roles
  * @swagger
- * /users/:
+ * /roles:
  *  get:
- *    description: Get all Users
- *    tags: ["Users"]
+ *    description: Get all Roles
+ *    tags: ["Roles"]
  *    responses:
  *      200:
- *        description: All Users
+ *        description: All Roles
  *        content:
  *          appication/json:
  *            schema:
- *              $ref: '#/components/schemas/UserTO'
+ *              $ref: '#/components/schemas/RoleTo'
  *      400:
  *        description: Error bad parameters
  *        content:
  *          application/json:
  *            schema:
  *              $ref: '#/components/schemas/ErrorTo'
- * components:
- *   schemas:
- *     UserTO:
- *       type: object
- *       properties:
- *         name:
- *              type: string
- *              example: rjaforever
- *         email:
- *              type: string
- *              example: rjaforever@gmail.com
- *              message: Users
  */
-router.get('', UserFacade.findAll);
-
+router.get('', RoleFacade.findAll);
+ 
+/**
+ * POST method route
+ * @example http://localhost:PORT/roles
+ * @swagger
+ * /roles:
+ *  post:
+ *    description: create Roles
+ *    tags: ["Roles"]
+ *    requestBody:
+ *      description: object roles
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/RoleTo'
+ *    responses:
+ *      200:
+ *        description: All Roles
+ *        content:
+ *          appication/json:
+ *            schema:
+ *              $ref: '#/components/schemas/RoleTo'
+ *      400:
+ *        description: Error bad parameters
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/ErrorTo'
+ */
+router.post('', RoleFacade.save);
+ 
 // /**
 //  * GET method route
-//  * @example http://localhost:PORT/ping
+//  * @example http://localhost:PORT/roles/pong
 //  * @swagger
-//  * /ping/:
+//  * /roles/pong/:
 //  *  get:
 //  *    description: Test service
-//  *    tags: ["Ping"]
+//  *    tags: ["Roles/Pong"]
 //  *    responses:
 //  *      200:
 //  *        description: Pong
@@ -164,12 +152,12 @@ router.get('', UserFacade.findAll);
 //  *              status: 200
 //  *              message: pong
 //  */
-// router.get('/ping', async (req, res) => {
-//     logger.info("(%s) - Request accepted: %s","UserRouter.ts",'');
+// router.get('/pong', async (req, res) => {
+//     logger.info("(%s) - Request accepted: %s","RoleRouter.ts",'');
 //     res.send('pong');
-//     logger.info("(%s) - Sending Response: %s","UserRouter.ts",{data:"pong"});
+//     logger.info("(%s) - Sending Response: %s","RoleRouter.ts",{data:"pong"});
 // });
-
+ 
 /**
  * @export {express.Router}
  */

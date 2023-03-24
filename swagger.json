@@ -11,9 +11,287 @@
     }
   ],
   "apis": [
-    "C:\\Users\\Ricardo.Jimenez\\Documents\\workspace\\user-service\\src\\**\\**\\*.ts"
+    "C:\\Users\\user\\Desktop\\Node\\user-service\\src\\**\\**\\*.ts"
   ],
   "paths": {
+    "/roles/{id}/id": {
+      "delete": {
+        "description": "delete Roles",
+        "tags": [
+          "Roles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number",
+              "example": 1
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All Roles"
+          },
+          "400": {
+            "description": "Error bad parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorTo"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "update Roles",
+        "tags": [
+          "Roles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number",
+              "example": 1
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "description": "object Roles",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RoleTo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All Roles",
+            "content": {
+              "appication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleTo"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error bad parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorTo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles": {
+      "get": {
+        "description": "Get all Roles",
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "200": {
+            "description": "All Roles",
+            "content": {
+              "appication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleTo"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error bad parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorTo"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "create Roles",
+        "tags": [
+          "Roles"
+        ],
+        "requestBody": {
+          "description": "object roles",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RoleTo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All Roles",
+            "content": {
+              "appication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleTo"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error bad parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorTo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}/id": {
+      "delete": {
+        "description": "delete Users",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number",
+              "example": 1
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All Users"
+          },
+          "400": {
+            "description": "Error bad parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorTo"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "update Users",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number",
+              "example": 1
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "description": "object user",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All Users",
+            "content": {
+              "appication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTo"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error bad parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorTo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "description": "create Users",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "description": "object user",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All Users",
+            "content": {
+              "appication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTo"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error bad parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorTo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users/": {
       "get": {
         "description": "Get all Users",
@@ -37,27 +315,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ErrorTo"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/ping/": {
-      "get": {
-        "description": "Test service",
-        "tags": [
-          "Ping"
-        ],
-        "responses": {
-          "200": {
-            "description": "Pong",
-            "content": {
-              "appication/json": {
-                "example": {
-                  "status": 200,
-                  "message": "pong"
                 }
               }
             }
@@ -104,6 +361,31 @@
             "type": "string",
             "description": "Información sobre solución del error",
             "example": "http://info.com"
+          }
+        }
+      },
+      "RoleTo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name of Role",
+            "example": "Admin"
+          }
+        }
+      },
+      "UserTo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name of user",
+            "example": "Pedro"
+          },
+          "email": {
+            "type": "string",
+            "description": "email of user",
+            "example": "pedro@axity.com"
           }
         }
       }
